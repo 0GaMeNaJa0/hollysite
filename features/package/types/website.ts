@@ -1,0 +1,3 @@
+interface Structure{
+    data : number
+}
