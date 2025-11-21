@@ -1,13 +1,5 @@
 import { DynamicIcon } from 'lucide-react/dynamic';
-
-export interface KpiCardProps {
-    label: string;
-    icon: string;
-    color: string;
-    type?: string;
-    value: number;
-    trend?: true;
-}
+import { KpiCardProps } from '../types/kpi-card';
 
 const KPICard = ({ label, icon, color, type, value, trend }: KpiCardProps) => {
     function getBgColor(color: string) {
@@ -50,10 +42,10 @@ const KPICard = ({ label, icon, color, type, value, trend }: KpiCardProps) => {
                     }
                     </p>
                     {trend ? (
-                    <div className='flex items-center'>
-                        <p className=' text-primary me-2'>+12.2%</p>
-                        <DynamicIcon name="trending-up" color="red" size={18} />
-                    </div>
+                        <div className='flex items-center'>
+                            <p className=' text-primary me-2'>+12.2%</p>
+                            <DynamicIcon name="trending-up" color="red" size={18} />
+                        </div>
                     ) : null }
                 </div>
             </div>

@@ -1,5 +1,5 @@
-import KPICard from "@/features/package/components/KpiCard";
-import TimeFilterButton from "@/features/package/components/TimeFilterButton";
+import KPICard from "@/features/admin/components/KpiCard";
+import TimeFilterButton from "@/features/admin/components/TimeFilterButton";
 
 const page = () => {
   return (
