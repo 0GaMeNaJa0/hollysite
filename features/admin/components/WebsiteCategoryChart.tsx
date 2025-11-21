@@ -49,9 +49,8 @@ const WebsiteCategoryChart = ({ categories, amounts }: WebsiteChartProps) => {
   return (
     <div className="w-full rounded-md shadow p-4">
       <div className="mb-4">
-        <h2 className="text-primary opacity-75 m-0">
-          Jobs Category by Payments
-        </h2>
+          <h2 className="text-primary opacity-75 m-0">หมวดหมู่เว็บไซต์ตามการปล่อยเช่า</h2>
+          <p className="text-grey mt-1">หมวดหมู่เว็บไซต์ตามการปล่อยเช่าแต่ละวันในช่วง 24 ชั่วโมงที่ผ่านมา</p>
       </div>
 
       <div className="relative w-full h-[250px] flex items-center justify-center">
