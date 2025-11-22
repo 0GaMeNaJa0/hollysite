@@ -1,9 +1,11 @@
+"use client"
 import WebsiteCategoryChart from "@/features/admin/components/WebsiteCategoryChart";
 import KPICard from "@/features/admin/components/KpiCard";
 import TimeFilterButton from "@/features/admin/components/TimeFilterButton";
 import WebsiteStatusChart from "@/features/admin/components/WebsiteStatusChart";
 import RevenueChart from "@/features/admin/components/RevenueChart";
 import PaymentChart from "@/features/admin/components/PaymentChart";
+import WebsitesTable from "@/features/user-management/components/WebsiteTable";
 
 const page = () => {
   const filterDateTime = [
@@ -40,6 +42,49 @@ const page = () => {
     {  payment: 85000, overdue: 84000 },
   ];
 
+  const websiteData = [
+    {
+      id: "ws-001",
+      websiteName: "Kiho Restaurant",
+      acceptedDate: new Date("2024-11-01"),
+      expirededDate: new Date("2025-11-01"),
+      paymentStatus: "Paymented",
+      rent: 1200,
+    },
+    {
+      id: "ws-002",
+      websiteName: "Cargo Express",
+      acceptedDate: new Date("2024-12-15"),
+      expirededDate: new Date("2025-12-15"),
+      paymentStatus: "Cancelled",
+      rent: 1500,
+    },
+    {
+      id: "ws-003",
+      websiteName: "VR Event Booking",
+      acceptedDate: new Date("2025-01-10"),
+      expirededDate: new Date("2026-01-10"),
+      paymentStatus: "Overdued",
+      rent: 900,
+    },
+    {
+      id: "ws-004",
+      websiteName: "Smart Tech Review",
+      acceptedDate: new Date("2025-02-01"),
+      expirededDate: new Date("2026-02-01"),
+      paymentStatus: "Paymented",
+      rent: 2200,
+    },
+    {
+      id: "ws-005",
+      websiteName: "Thai Travel Hub",
+      acceptedDate: new Date("2024-09-20"),
+      expirededDate: new Date("2025-09-20"),
+      paymentStatus: "Overdued",
+      rent: 1800,
+    },
+  ];
+
   return (
     <div className="w-full items-center flex flex-col py-5 gap-5">
       <div className="w-full justify-items-end">
@@ -69,7 +114,8 @@ const page = () => {
           amounts={websiteCategories.map(item => item.value)}
         />
       </div>
-
+      
+      <WebsitesTable websites={websiteData}/>
     </div>
   )
 }

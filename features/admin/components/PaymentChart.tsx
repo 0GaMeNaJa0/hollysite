@@ -1,5 +1,3 @@
-"use client";
-
 import { useRef, useEffect } from "react";
 import Chart from "chart.js/auto";
 import { PaymentChartProps } from "../types/payment-chart";
