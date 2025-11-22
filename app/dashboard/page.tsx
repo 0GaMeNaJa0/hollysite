@@ -3,6 +3,7 @@ import KPICard from "@/features/admin/components/KpiCard";
 import TimeFilterButton from "@/features/admin/components/TimeFilterButton";
 import WebsiteStatusChart from "@/features/admin/components/WebsiteStatusChart";
 import RevenueChart from "@/features/admin/components/RevenueChart";
+import PaymentChart from "@/features/admin/components/PaymentChart";
 
 const page = () => {
   const filterDateTime = [
@@ -30,6 +31,15 @@ const page = () => {
 
   const revenueGrowthData = [ 1000, 2800, 4300, 3800, 8300, 12000];
 
+  const paymentGrowthData = [
+    {  payment: 83000, overdue: 82000 },
+    {  payment: 84000, overdue: 83000 },
+    {  payment: 84000, overdue: 84000 },
+    {  payment: 85000, overdue: 84000 },
+    {  payment: 85000, overdue: 82000 },
+    {  payment: 85000, overdue: 84000 },
+  ];
+
   return (
     <div className="w-full items-center flex flex-col py-5 gap-5">
       <div className="w-full justify-items-end">
@@ -49,6 +59,11 @@ const page = () => {
       </div>
 
       <div className="flex gap-x-5 w-full justify-center">
+        <PaymentChart 
+          time={filterDateTime.map(item => item.time)} 
+          payment={paymentGrowthData.map(item => item.payment)} 
+          overdue={paymentGrowthData.map(item => item.overdue)}
+        />
         <WebsiteCategoryChart 
           categories={websiteCategories.map(item => item.categorie)} 
           amounts={websiteCategories.map(item => item.value)}

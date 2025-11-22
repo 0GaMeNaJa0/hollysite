@@ -63,7 +63,7 @@ const RevenueChart = ({ time, revenue }: RevenueChartProps) => {
                 ticks: {
                     color: "#6b7280",
                     font: { size: 12, weight: 600 },
-                    callback: (value: any) => value.toLocaleString() + "฿"
+                    callback: (value: any) => `฿${value.toLocaleString()}`
                 }
             }
             },
