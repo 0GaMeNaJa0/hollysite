@@ -2,6 +2,7 @@ import WebsiteCategoryChart from "@/features/admin/components/WebsiteCategoryCha
 import KPICard from "@/features/admin/components/KpiCard";
 import TimeFilterButton from "@/features/admin/components/TimeFilterButton";
 import WebsiteStatusChart from "@/features/admin/components/WebsiteStatusChart";
+import RevenueChart from "@/features/admin/components/RevenueChart";
 
 const page = () => {
   const filterDateTime = [
@@ -27,10 +28,10 @@ const page = () => {
     overdued: [0, 4, 6, 7, 5, 6]
   };
 
+  const revenueGrowthData = [ 1000, 2800, 4300, 3800, 8300, 12000];
+
   return (
     <div className="w-full items-center flex flex-col py-5 gap-5">
-
-      
       <div className="w-full justify-items-end">
         <TimeFilterButton/>
       </div>
@@ -42,12 +43,16 @@ const page = () => {
         <KPICard label="ยอดค้างชำระทั้งหมด" icon="banknote-x" type="paid" value={225500} color="red" trend />
       </div> 
 
-      <div>
+      <div className="flex gap-x-5 w-full justify-center">
+        <WebsiteStatusChart time={filterDateTime.map(item => item.time)} websitesStatus={websitesStatus}/>
+        <RevenueChart time={filterDateTime.map(item => item.time)} revenue={revenueGrowthData}/>
+      </div>
+
+      <div className="flex gap-x-5 w-full justify-center">
         <WebsiteCategoryChart 
           categories={websiteCategories.map(item => item.categorie)} 
           amounts={websiteCategories.map(item => item.value)}
         />
-        <WebsiteStatusChart time={filterDateTime.map(item => item.time)} websitesStatus={websitesStatus}/>
       </div>
 
     </div>
