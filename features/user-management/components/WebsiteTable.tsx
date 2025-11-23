@@ -41,6 +41,12 @@ const WebsitesTable = ({ websites }: WebsiteTableProps) => {
         return `${date.getDate()} ${getThaiMonthName(date.getMonth())} ${date.getFullYear()}`;
     }
 
+    const paymentStatusLabels: Record<string, string> = {
+      Paymented: "ชำระเงินแล้ว",
+      Overdued: "เกินกำหนด",
+      Cancelled: "ยกเลิกแล้ว",
+    };
+
     return (
         <div className={`overflow-hidden w-full bg-primary rounded-md border-primary border-x ${websites?.length === 0 ? "" : "border-b"}`}>
             <table className="table">
@@ -64,9 +70,9 @@ const WebsitesTable = ({ websites }: WebsiteTableProps) => {
                                 <p className=" font-semibold">{getFormatDate(web.expirededDate)}</p>
                             </td>
                             <td className="py-0 h-[70px] align-middle">
-                                <div className={`w-[100px] p-2.5 rounded-md flex justify-center ${getBgColor(web.paymentStatus)}`}>
+                                <div className={`w-[120px] p-2.5 rounded-md flex justify-center ${getBgColor(web.paymentStatus)}`}>
                                     <p className={` font-semibold ${getTextColor(web.paymentStatus)}`}>
-                                        {web.paymentStatus}
+                                        {paymentStatusLabels[web.paymentStatus]}
                                     </p>
                                 </div>
                             </td>

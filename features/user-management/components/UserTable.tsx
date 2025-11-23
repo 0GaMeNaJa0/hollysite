@@ -4,18 +4,29 @@ import { EllipsisVertical, Plus } from "lucide-react";
 
 const UserTable = ({ persons }: UserTableProps) => {
     const router = useRouter();
-    const tableHeaders = ["Username", "Email", "Role", "Status"]
+    const tableHeaders = ["ชื่อบัญชีผู้ใช้งาน", "อีเมล", "สิทธิ์การใช้งาน", "สถานะการใช้งาน"]
+
+    const statusLabels: Record<string, string> = {
+        Active: "เปิดใช้งาน",
+        Inactive: "ปิดใช้งาน",
+    };
+
+    const roleLabels: Record<string, string> = {
+        Admin: "ผู้ดูแลระบบ",
+        Client: "ลูกค้า",
+        Developer: "นักพัฒนา"
+    };
     
     return (
-        <div className={`overflow-hidden w-full bg-primary rounded-box border-primary border-x ${persons?.length === 0 ? "" : "border-b"}`}>
+        <div className={`overflow-hidden w-full bg-primary rounded-md border-primary border-x ${persons?.length === 0 ? "" : "border-b"}`}>
             <table className="table">
                 <thead className="text-white">
                     <tr>
                         {tableHeaders.map((header, index) => (
-                            <th key={index} className="h-[45px]" style={{ width: `${100 / (tableHeaders.length)}%` }}>{header}</th>
+                            <th key={index} className="h-[45px]" style={{ width: `${100 / (tableHeaders.length)}%`}}>{header}</th>
                         ))}
                         <th className="flex justify-end h-[45px] items-center">
-                            <div className={`btn h-[32px] w-[32px] bg-[#55A386] border-none`} >
+                            <div className={`h-[32px] w-[32px] bg-[#55A386] border-none rounded-md flex items-center justify-center`} >
                                 <Plus />
                             </div>
                         </th>
@@ -38,12 +49,12 @@ const UserTable = ({ persons }: UserTableProps) => {
                                 <p className=" font-semibold">{person.email}</p>
                             </td>
                             <td className="py-0 h-[70px] align-middle">
-                                <p className=" font-semibold">{person.role}</p>
+                                <p className=" font-semibold">{roleLabels[person.role]}</p>
                             </td>
                             <td className="py-0 h-[70px] align-middle">
-                                <div className={`w-[80px] p-2.5 rounded-box flex justify-center ${person.status === "Active" ? "bg-primary/15" : "bg-danger/15"}`}>
+                                <div className={`w-[120px] p-2.5 rounded-md flex justify-center ${person.status === "Active" ? "bg-primary/15" : "bg-danger/15"}`}>
                                     <p className={` font-semibold ${person.status === "Active" ? "text-primary" : "text-danger"}`}>
-                                        {person.status}
+                                        {statusLabels[person.status]}
                                     </p>
                                 </div>
                             </td>
