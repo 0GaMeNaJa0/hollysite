@@ -42,7 +42,7 @@ const WebsitesTable = ({ websites }: WebsiteTableProps) => {
     }
 
     return (
-        <div className={`overflow-hidden w-full bg-[#4A7766] rounded-md border-[#4A7766] border-x ${websites?.length === 0 ? "" : "border-b"}`}>
+        <div className={`overflow-hidden w-full bg-primary rounded-md border-primary border-x ${websites?.length === 0 ? "" : "border-b"}`}>
             <table className="table">
                 <thead className="text-white">
                     <tr>
