@@ -23,6 +23,7 @@ export default function Home() {
           <h1 className="text-5xl">ไม่ต้องรอสร้างเว็บไซต์แค่เลือก <br />แบบที่<span className="text-5xl text-primary">ชอบ</span> ก็พร้อมใช้งานทันที</h1>
           <p>เลือกเว็ปไซต์ที่ช่วยแก้ปัญหาของคุณ ในแบบที่คุณต้องการ</p>
           <Button>ดูเว็ปไซต์สำเร็จรูป</Button>
+          <p>Pair Extraordinaire Commit</p>
         </div>
       </div>
     </div>
