@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { Sun, Bell, Menu, X } from "lucide-react";
 import { NAV_LINKS, ACTION_BUTTONS, HIDDEN_PATHS } from "@/features/layout/constants/menu";
+import { Color } from "@/enum/color";
 
 
 const Logo = () => (
@@ -48,10 +49,10 @@ const DesktopMenu = () => (
 
     <ul className="navbar-end gap-x-7">
       <li>
-        <Sun color="#4A7766" />
+        <Sun color={Color.PRIMARY} />
       </li>
       <li>
-        <Bell color="#4A7766" />
+        <Bell color={Color.PRIMARY} />
       </li>
       <li>
         <UserAvatar />
